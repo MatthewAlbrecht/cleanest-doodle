@@ -3,7 +3,7 @@ import { Link, useLoaderData } from 'remix';
 import { db } from '~/utils/db.server';
 
 type LoaderData = {
-  leaderboard: (Pick<Doodle, 'tokenId' | 'imageUrl' | 'id'> & {
+  leaderboard: (Pick<Doodle, 'tokenId' | 'imageUrl'> & {
     winPct: number;
   })[];
 };
@@ -15,7 +15,6 @@ export const loader = async () => {
     select: {
       tokenId: true,
       imageUrl: true,
-      id: true,
       _count: {
         select: {
           votesFor: true,
