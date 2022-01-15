@@ -5,13 +5,17 @@ import { db } from '~/utils/db.server';
 type LoaderData = {
   leaderboard: (Pick<Doodle, 'tokenId' | 'imageUrl'> & {
     winPct: number;
+    _count: {
+      votesFor: number;
+      votesAgainst: number;
+    };
   })[];
 };
 
 export const loader = async () => {
   let leaderboardData = await db.doodle.findMany({
     orderBy: [{ votesFor: { _count: 'desc' } }],
-    take: 100,
+    take: 200,
     select: {
       tokenId: true,
       imageUrl: true,
