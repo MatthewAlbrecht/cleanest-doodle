@@ -1,14 +1,13 @@
 import { Doodle } from '@prisma/client';
 import { Link, useLoaderData } from 'remix';
 import { db } from '~/utils/db.server';
+import { sortByProp } from '~/utils/sort';
 
 type LoaderData = {
   leaderboard: (Pick<Doodle, 'tokenId' | 'imageUrl'> & {
     winPct: number;
-    _count: {
-      votesFor: number;
-      votesAgainst: number;
-    };
+    votesFor: number;
+    votesAgainst: number;
   })[];
 };
 
@@ -28,15 +27,20 @@ export const loader = async () => {
     },
   });
 
-  let newLeaderboardData = leaderboardData.map((dood) => ({
-    ...dood,
-    winPct:
-      dood._count.votesAgainst + dood._count.votesFor === 0
-        ? 0
-        : (dood._count.votesFor /
-            (dood._count.votesAgainst + dood._count.votesFor)) *
-          100,
-  }));
+  let newLeaderboardData = leaderboardData
+    .map((dood) => ({
+      ...dood,
+      votesFor: dood._count.votesFor,
+      votesAgianst: dood._count.votesAgainst,
+      _count: undefined,
+      winPct:
+        dood._count.votesAgainst + dood._count.votesFor === 0
+          ? 0
+          : (dood._count.votesFor /
+              (dood._count.votesAgainst + dood._count.votesFor)) *
+            100,
+    }))
+    .sort((a, b) => sortByProp(a, b, '-winPct', '-votesFor'));
 
   let data = {
     leaderboard: newLeaderboardData,
