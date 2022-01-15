@@ -518,9 +518,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 4rem;
 }
 
+.m-6 {
+  margin: 1.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .mt-12 {
@@ -599,6 +608,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 5rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -671,9 +684,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 1rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pt-1 {
@@ -706,6 +728,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -728,6 +755,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(49 46 129 / var(--tw-text-opacity));
 }
 
+.transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .hover\:bg-white\/95:hover {
   background-color: rgb(255 255 255 / 0.95);
 }
@@ -743,4 +778,47 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .peer:checked ~ .peer-checked\:p-2 {
   padding: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .sm\:p-4 {
+    padding: 1rem;
+  }
+
+  .sm\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:m-16 {
+    margin: 4rem;
+  }
+
+  .md\:gap-20 {
+    gap: 5rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:hover\:bg-white\/95:hover {
+    background-color: rgb(255 255 255 / 0.95);
+  }
+
+  .peer:checked ~ .md\:peer-checked\:border-8 {
+    border-width: 8px;
+  }
+
+  .peer:checked ~ .md\:peer-checked\:border-doodles-green {
+    --tw-border-opacity: 1;
+    border-color: rgb(149 241 197 / var(--tw-border-opacity));
+  }
+
+  .peer:checked ~ .md\:peer-checked\:p-2 {
+    padding: 0.5rem;
+  }
 }

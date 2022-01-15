@@ -8,3 +8,5 @@ node_modules
 /prisma/develop.db
 # Local Netlify folder
 .netlify
+
+netlify/functions/server/build
