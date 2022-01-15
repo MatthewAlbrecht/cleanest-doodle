@@ -117,6 +117,14 @@
     "@remix-run/node" "1.1.1"
     "@remix-run/server-runtime" "1.1.1"
 
+"@remix-run/netlify@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@remix-run/netlify/-/netlify-1.1.1.tgz#15eb20f6021a763426f2d790e463c216df39d2ac"
+  integrity sha512-6eUw36ynCpisQbtf5UFMIVTuSX6HzK5bto/fq+Spp+pXDchM+3JEZKEiZfdWT3QCkc0QGCeC2VsLuBhyC5w35g==
+  dependencies:
+    "@remix-run/node" "1.1.1"
+    "@remix-run/server-runtime" "1.1.1"
+
 "@remix-run/node@1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@remix-run/node/-/node-1.1.1.tgz#c31bee7c75a2e42b04a9e06cd4a94b016737a842"

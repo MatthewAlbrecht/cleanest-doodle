@@ -6,3 +6,5 @@ node_modules
 .env
 
 /prisma/develop.db
+# Local Netlify folder
+.netlify
