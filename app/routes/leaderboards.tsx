@@ -1,22 +1,6 @@
 import { Doodle } from '@prisma/client';
-import { useState } from 'react';
-import {
-  ActionFunction,
-  Form,
-  json,
-  Link,
-  redirect,
-  useActionData,
-  useLoaderData,
-  useSubmit,
-  useTransition,
-} from 'remix';
+import { Link, useLoaderData } from 'remix';
 import { db } from '~/utils/db.server';
-
-/**
- * returns number between 0 - n
- */
-const getRandomNumber = (n: number) => Math.floor(Math.random() * n);
 
 type LoaderData = {
   leaderboard: (Pick<Doodle, 'tokenId' | 'imageUrl' | 'id'> & {
@@ -58,31 +42,26 @@ export const loader = async () => {
 };
 
 export default function IndexRoute() {
-  const submit = useSubmit();
   const data = useLoaderData<LoaderData>();
-  const transition = useTransition();
-  console.log(transition.submission);
-  // show checkbox over clicked one
-
-  async function handleChange(e: React.FormEvent<HTMLFormElement>) {
-    submit(e.currentTarget, { replace: true });
-  }
 
   return (
     <div>
       <header>
-        <nav className="py-4 flex items-center justify-between px-12">
+        <nav className="py-4 flex items-center justify-between px-6 sm:px-12">
           <Link to="/">
-            <h1 className="text-xl text-white divide-y-2 divide-white/50 space-y-2 font-display text-center">
+            <h1 className="text-md sm:text-xl text-white divide-y-2 divide-white/50 space-y-2 font-display text-center">
               <div>
                 <span className="sr-only">Doodles</span>
-                <img className="h-10" src="images/doodles-logo.svg" />
+                <img
+                  className="m-auto h-6 sm:h-10"
+                  src="images/doodles-logo.svg"
+                />
               </div>
               <span className="block pt-1">Cleanliness Rater</span>
             </h1>
           </Link>
           <Link
-            className="text-2xl text-white hover:underline"
+            className="text-lg md:text-2xl text-white hover:underline"
             to="/leaderboards"
             prefetch="intent"
           >
@@ -116,35 +95,6 @@ export default function IndexRoute() {
           </ul>
         </div>
       </main>
-    </div>
-  );
-}
-
-function DoodleRadio({
-  dood,
-}: {
-  dood: Pick<Doodle, 'tokenId' | 'imageUrl' | 'id'>;
-}) {
-  const inputId = `doodle-${dood.tokenId}`;
-  return (
-    <div>
-      <label htmlFor={inputId}>
-        <span className="sr-only">doodle number {dood.tokenId}</span>
-        <input
-          key={inputId}
-          id={inputId}
-          type="radio"
-          className="hidden peer"
-          name="doodle-radio"
-          value={dood.id}
-        />
-        <div className="bg-white md:hover:bg-white/95 p-2 sm:p-4 rounded-lg md:peer-checked:p-2 md:peer-checked:border-8 md:peer-checked:border-doodles-green">
-          <img className="w-auto rounded-lg" src={`${dood.imageUrl}=s512`} />
-          <h3 className="py-4 -mb-4 text-right leading-none text-xl font-bold text-indigo-900">
-            #{dood.tokenId}
-          </h3>
-        </div>
-      </label>
     </div>
   );
 }

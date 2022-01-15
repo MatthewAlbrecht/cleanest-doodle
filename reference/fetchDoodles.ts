@@ -7,7 +7,6 @@ export default async function fetchDoods() {
   let limit = 50;
 
   while (offset + limit <= 10000) {
-    console.log(`fetching doods ${offset} to ${offset + limit}`);
     let res = await fetch(
       'https://api.opensea.io/api/v1/assets?' +
         createSearchParams({
@@ -53,5 +52,4 @@ export default async function fetchDoods() {
     }, {}),
   }));
   fs.writeFileSync('doodles.json', JSON.stringify(normalizedDoodles));
-  console.log('wrote doods to file');
 }

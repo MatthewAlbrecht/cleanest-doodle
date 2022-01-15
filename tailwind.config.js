@@ -3,7 +3,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Comic Neue'],
         body: ['Lato'],
       },
       colors: {

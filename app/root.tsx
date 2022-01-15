@@ -20,7 +20,7 @@ export const links: LinksFunction = () => {
     },
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Lato:wght@400;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap',
     },
   ];
 };

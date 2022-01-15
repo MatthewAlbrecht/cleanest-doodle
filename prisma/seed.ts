@@ -11,8 +11,6 @@ async function seed() {
   let creation = await prisma.doodle.createMany({
     data: normalizedDoods.slice(7500, 10000),
   });
-
-  console.log('creation?', creation);
 }
 
 seed();
