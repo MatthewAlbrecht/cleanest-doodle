@@ -1,12 +1,11 @@
 node_modules
 
+node_modules
 /.cache
-/build
+/netlify/functions/server/build
 /public/build
+/.netlify
 .env
 
+/prisma/dev.db
 /prisma/develop.db
-# Local Netlify folder
-.netlify
-
-netlify/functions/server/build
