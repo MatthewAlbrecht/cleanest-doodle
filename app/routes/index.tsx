@@ -69,12 +69,6 @@ export const loader = async () => {
 
 type ActionData = {
   formError?: string;
-  fieldErrors?: {
-    tokenId: string | undefined;
-  };
-  fields?: {
-    tokenId: string;
-  };
 };
 // pick two unique random numbers between 0-9999
 // grab the image w/ size set to 512 append =s512 to imageUrl
@@ -111,9 +105,9 @@ export const action: ActionFunction = async ({ request }) => {
 export default function IndexRoute() {
   const submit = useSubmit();
   const data = useLoaderData<LoaderData>();
-  const action = useActionData<ActionData>();
   const transition = useTransition();
   console.log(transition.submission);
+  // show checkbox over clicked one
 
   async function handleChange(e: React.FormEvent<HTMLFormElement>) {
     submit(e.currentTarget, { replace: true });
@@ -139,8 +133,8 @@ export default function IndexRoute() {
             cleaner?
           </span>
         </h2>
-        <Form method="post" onChange={handleChange}>
-          {data?.dood1 && data.dood2 && (
+        {data?.dood1 && data.dood2 && (
+          <Form method="post" onChange={handleChange}>
             <div className="m-6 my-12 md:m-16">
               <input type="hidden" name="dood-1-id" value={data.dood1.id} />
               <input type="hidden" name="dood-2-id" value={data.dood2.id} />
@@ -149,8 +143,8 @@ export default function IndexRoute() {
                 <DoodleRadio dood={data.dood2} />
               </div>
             </div>
-          )}
-        </Form>
+          </Form>
+        )}
         <div className="mt-20">
           <h2 className="text-3xl md:text-5xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-doodles-green via-doodles-orange to-doodles-pink">
             Leaderboards
@@ -191,6 +185,7 @@ function DoodleRadio({
       <label htmlFor={inputId}>
         <span className="sr-only">doodle number {dood.tokenId}</span>
         <input
+          key={inputId}
           id={inputId}
           type="radio"
           className="hidden peer"
