@@ -1,0 +1,31 @@
+{
+  "version": "e445e192",
+  "entry": {
+    "module": "/build/entry.client-CUPDPEJZ.js",
+    "imports": [
+      "/build/_shared/chunk-75Z77X4D.js"
+    ]
+  },
+  "routes": {
+    "root": {
+      "id": "root",
+      "path": "",
+      "module": "/build/root-KG77HEO3.js",
+      "hasAction": false,
+      "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/index": {
+      "id": "routes/index",
+      "parentId": "root",
+      "index": true,
+      "module": "/build/routes/index-7F6T2QGZ.js",
+      "hasAction": true,
+      "hasLoader": true,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    }
+  },
+  "url": "/build/manifest-E445E192.js"
+}
