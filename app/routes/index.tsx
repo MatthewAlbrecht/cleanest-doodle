@@ -88,18 +88,21 @@ export default function IndexRoute() {
   return (
     <div>
       <header className="fixed top-0 left-0 w-full">
-        <nav className="py-4 flex items-center justify-between px-12">
+        <nav className="py-4 flex items-center justify-between px-6 sm:px-12">
           <Link to="/">
-            <h1 className="text-xl text-white divide-y-2 divide-white/50 space-y-2 font-display text-center">
+            <h1 className="text-md sm:text-xl text-white divide-y-2 divide-white/50 space-y-2 font-display text-center">
               <div>
                 <span className="sr-only">Doodles</span>
-                <img className="h-10" src="images/doodles-logo.svg" />
+                <img
+                  className="m-auto h-6 sm:h-10"
+                  src="images/doodles-logo.svg"
+                />
               </div>
               <span className="block pt-1">Cleanliness Rater</span>
             </h1>
           </Link>
           <Link
-            className="text-2xl text-white hover:underline"
+            className="text-lg md:text-2xl text-white hover:underline"
             to="/leaderboards"
             prefetch="intent"
           >

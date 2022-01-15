@@ -29,6 +29,10 @@ export default function App() {
     <html lang="en" className="font-body">
       <head>
         <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
         <title>Remix: So great, it's funny!</title>
         <Links />
       </head>
