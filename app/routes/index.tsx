@@ -110,9 +110,10 @@ export default function IndexRoute() {
       <main className="min-h-screen container mx-auto flex justify-center items-center flex-col">
         <h2 className="text-3xl md:text-5xl text-white text-center">
           Which dood is{' '}
-          <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-doodles-green via-doodles-orange to-doodles-pink">
-            cleaner?
-          </span>
+          <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-doodles-green via-doodles-orange to-doodles-pink inline-block py-2 border-b-4">
+            cleaner
+          </span>{' '}
+          ?
         </h2>
         {data?.dood1 && data.dood2 && (
           <Form method="post" onChange={handleChange}>
